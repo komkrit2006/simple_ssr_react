@@ -1,5 +1,5 @@
 import express from 'express';
-
+let PORT = process.env.PORT || 3000;
 let app = require('./server').default;
 
 if (module.hot) {
@@ -16,8 +16,8 @@ if (module.hot) {
 
 express()
   .use((req, res) => app.handle(req, res))
-  .listen(process.env.PORT || 3000, () => {
+  .listen(PORT || 3000, () => {
     console.log(
-      `React SSR App is running: http://localhost:${process.env.PORT || 3000}`
+      `React SSR App is running: http://localhost:${PORT || 3000}`
     );
   });
